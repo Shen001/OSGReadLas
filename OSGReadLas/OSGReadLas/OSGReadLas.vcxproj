@@ -63,6 +63,8 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <OutDir>$(SolutionDir)$(Platform)\$(Configuration)\</OutDir>
+    <IncludePath>F:\code\osg\osg_build\include;$(IncludePath)</IncludePath>
+    <LibraryPath>F:\code\osg\osg_build\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <OutDir>$(SolutionDir)$(Platform)\$(Configuration)\</OutDir>
@@ -101,7 +103,7 @@
       <OutputFile>$(OutDir)\$(ProjectName).exe</OutputFile>
       <AdditionalLibraryDirectories>$(QTDIR)\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>qtmaind.lib;Qt5Cored.lib;Qt5Guid.lib;Qt5OpenGLd.lib;opengl32.lib;glu32.lib;Qt5Widgetsd.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>qtmaind.lib;Qt5Cored.lib;Qt5Guid.lib;Qt5OpenGLd.lib;opengl32.lib;glu32.lib;Qt5Widgetsd.lib;osgWidgetd.lib;osgViewerd.lib;osgGAd.lib;osgTextd.lib;osgDBd.lib;OpenThreadsd.lib;osgd.lib;osgUtild.lib;zlibd.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -155,7 +157,10 @@
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClCompile>
+    <ClCompile Include="GraphicsWindowQt.cpp" />
+    <ClCompile Include="lasPaser.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="mainForm.cpp" />
     <ClCompile Include="osgreadlas.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -200,6 +205,11 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GeneratedFiles\ui_osgreadlas.h" />
+    <ClInclude Include="globalValue.h" />
+    <ClInclude Include="GraphicsWindowQt.h" />
+    <ClInclude Include="lasdefinitions.h" />
+    <ClInclude Include="lasPaser.h" />
+    <ClInclude Include="mainForm.h" />
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="osgreadlas.qrc">
